@@ -22,3 +22,16 @@ def lionNewPost(request):
         )
         return render(request, 'lionNewPost.html', {'newLion': newLion})
     return render(request, 'lionNewPost.html')
+
+def lionEdit(request, pk): 
+    #세부화면에서 수정하는것이기에 pk값을 안받아도 되나?
+    edit = Blog.objects.get(pk=pk) #edit이란 변수에는 그 pk페이지에 맞는 정보들이 들어있다.
+        #node에서 data = req.body로 받아왔던 것과 유사
+    if request.method == 'POST':
+        edit.title=request.POST['title'][0],
+        edit.body=request.POST['body'][0],
+        edit.pub_date = request.POST['pub_date'][0]
+        edit.save()
+    return render(request, 'lionEdit.html', {'edit':edit})
+        #request가 있는 경우 edit값과 함께 lionEdit을 렌더링한다
+        #request가 없는 경우는 edit값이 없기에 페이지이동역할로만 작동된다

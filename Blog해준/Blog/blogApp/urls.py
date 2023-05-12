@@ -8,7 +8,9 @@ from .views import *
 urlpatterns = [
     path('lion/', lion, name='lion'),
     path('lion/<int:pk>',lionPosting, name="lionPosting"),
-    path('lion/lionNewPost/',lionNewPost)
+    path('lion/lionNewPost/',lionNewPost),
+    path('lionEdit/<int:pk>',lionEdit, name='lionEdit')
+        #id값 받아야하는지 checks
 ]
 
 # 이미지 URL 설정

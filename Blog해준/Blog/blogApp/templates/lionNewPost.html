@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,33 +6,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/static/css/lion.css">
   <title>lionNewPost</title>
 </head>
 
 <body>
-  <h1 style="color:rgb(29, 179, 29); text-align:center">
-    HAEJUN'S BLOG
-  </h1>
+  <header>
+    <h1 class="header_title">
+      HAEJUN'S BLOG
+    </h1>
+  </header>
 
   <hr>
 
-  <h2>
-    글쓰기 페이지
-  </h2>
-
-  <form method="POST">
-    <!-- 서버에 전송하기 위한 틀역할을 하는 form -->
-    {% csrf_token %}
-    <!-- 보안기능 -->
-    제목<br>
-    <input type="text" name="title"><br>
-    시간<br>
-    <input type="datetime" name="pub_date"><br>
-    내용<br>
-    <textarea rows="10" cols="50" name="body"></textarea><br>
-    <!-- <input type="file" name="mainphoto"><br> -->
-    <input type="submit" value="글쓰기">
-  </form>
+  <section class="blog_new_section">
+    <form method="POST">
+      {% csrf_token %}
+      <p>제목</p>
+      <input type="text" name="title" class="blog_new_area">
+      <p>시간</p>
+      <input type="datetime" name="pub_date" class="blog_new_area">
+      <p>본문</p>
+      <textarea rows="10" cols="50" name="body" class="blog_new_area"></textarea>
+      <!-- <input type="file" name="mainphoto"><br> -->
+      <input type="submit" value="완료" class="blog_new_submit">
+    </form>
+  </section>
 
 </body>
 
