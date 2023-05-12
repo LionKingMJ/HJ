@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lion</title>
+</head>
+
+<body>
+  <h1 style="color:rgb(29, 179, 29); text-align:center">
+    HAEJUN'S BLOG
+  </h1>
+
+  <hr>
+
+  <button><a href="lionNewPost/">글쓰기</a></button>
+  {% for blog in blogs.all %}
+  <!-- 주석과 같은 역할, for문으로 blogs전체를 돌리겠다는 뜻 -->
+
+  <div class="container" style="background-color: rgb(255, 255, 211);">
+    <a href="{{blog.pk}}" style="border: 1px solid black; display:inline-block">
+      {{ blog.title }}
+      <!-- 글 목록만 보이게 하기 위해 title만 띄우든지 해보자 -->
+    </a>
+
+  </div>
+  {% endfor %}
+  <!-- 보통 시작과 끝이있다 -->
+
+</body>
+
+</html>
+
+<!-- 주석 -->
