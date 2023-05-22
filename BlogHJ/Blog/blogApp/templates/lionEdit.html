@@ -24,11 +24,9 @@
   <form method="POST" action="{%url 'lionUpdate' update.pk %}">
     {% csrf_token %}
     제목<br>
-    <input type="text" name="title"><br>
-    <!-- 시간<br>
-    <input type="datetime" name="pub_date"><br> -->
+    <input type="text" name="title" value="{{ form.title }}"><br>
     내용<br>
-    <textarea rows="10" cols="50" name="body"></textarea><br>
+    <textarea rows="10" cols="50" name="body">{{form.body}}</textarea><br>
     <input type="submit" value="완료">
   </form>
   {% bootstrap_javascript %}

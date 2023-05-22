@@ -26,7 +26,19 @@ def lionNewPost(request):
 
 def lionEdit(request, pk): 
     update = Blog.objects.get(pk=pk) 
-    return render(request, 'lionEdit.html', {'update':update})
+    if request.method == 'POST':
+        update.title = request.POST['title']
+        update.body = request.POST['body']
+        update.pub_date = timezone.now()
+        update.save()
+        return redirect('/lion/' + str(pk))
+    else:
+        form = {
+            'title' : update.title,
+            'body' : update.body,
+        }
+    return render(request, 'lionEdit.html', {'update': update, 'form':form})
+
 
 def lionUpdate(request, pk):
     update = Blog.objects.get(pk=pk)
