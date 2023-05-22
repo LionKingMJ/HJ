@@ -1,0 +1,52 @@
+{%load bootstrap4%}
+{% load static %}
+{% bootstrap_css %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../static/css/lion.css">
+  <title>lion</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="header_title">
+      <a href="/lion">
+        HAEJUN'S BLOG
+      </a>
+    </h1>
+  </header>
+
+  <hr>
+
+  <section class="blog_list">
+
+    <div class="blog_new_button">
+      <button>
+        <a href="lionNewPost/">글쓰기</a>
+      </button>
+    </div>
+
+    {% for blog in blogs.all %}
+    <!-- 주석과 같은 역할, for문으로 blogs전체를 돌리겠다는 뜻 -->
+
+    <ul class="blog_list_ul">
+      <li>
+        <a href="{{blog.pk}}">
+          {{ blog.title }}
+        </a>
+      </li>
+    </ul>
+    {% endfor %}
+  </section>
+
+  {% bootstrap_javascript %}
+</body>
+
+</html>
+
+<!-- 주석 -->
