@@ -32,6 +32,7 @@
   <!-- <img src="{{blog.img.url}}" alt="#" height="600"> -->
   <a href="/lion">목록으로 이동</a>
   <a href="/lionEdit/{{blog.pk}}">수정하기</a>
+  <a href="{% url 'lionDel' blog.pk %}">삭제하기</a>
   {% bootstrap_javascript %}
 </body>
 
