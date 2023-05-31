@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from .views import *
 
 urlpatterns = [
@@ -8,4 +8,6 @@ urlpatterns = [
     path('lionEdit/<int:pk>',lionEdit, name='lionEdit'),
     path('lionUpdate/<int:pk>', lionUpdate, name='lionUpdate'),
     path('lionDel/<int:pk>', lionDel, name="lionDel"),
+    path('lionForm/',lionForm, name='lionForm'),
+    path('accounts/', include('allauth.urls')),
 ]

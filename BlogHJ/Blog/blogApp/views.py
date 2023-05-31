@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Blog
  #models.py에서 적었던 Blog를 import해주기
 from django.utils import timezone
+from .form import LionForm
 
 def lion(request):
     blogs = Blog.objects.order_by('-pub_date')
@@ -46,7 +47,20 @@ def lionUpdate(request, pk):
     update.save()
     return redirect('/lion', pk=update.pk)
 
+
 def lionDel(request, pk):
     lionDel = Blog.objects.get(pk=pk)
     lionDel.delete()
-    return redirect('/lion')
+    return redirect(request, '/lion')
+
+def lionForm(request):
+    if request.method == 'POST':
+        form = LionForm(request.POST)
+        if form.is_valid():
+            blog = form.save(commit=False)
+            blog.pub_date=timezone.now()
+            blog.save()
+            return redirect('/lion')
+    else:
+        form = LionForm()
+        return render(request,'lionForm.html',{'form':form})
