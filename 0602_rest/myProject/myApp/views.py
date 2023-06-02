@@ -1,9 +1,7 @@
-from django.shortcuts import render
 from rest_framework import viewsets
-from .models import *
-from .serializers import LionSerializer
+from .models import Essay
+from .serializers import EssaySerializer
 
-# Create your views here.
-class LionViewSet(viewsets.ModelViewSet): 
-    queryset = Lion.objects.all()
-    serializer_class = LionSerializer
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Essay.objects.all()
+    serializer_class = EssaySerializer

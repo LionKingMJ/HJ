@@ -1,10 +1,8 @@
 from django.contrib import admin
 from django.urls import include, path
-from rest_framework import routers
-
-router = DefaultRouter()
+from myApp import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
+    path('', include('myApp.urls'))
 ]

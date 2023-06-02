@@ -1,7 +1,7 @@
+from .models import Essay
 from rest_framework import serializers
-from .models import *
 
-class LionSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = Lion
-    fields = '__all__'
+class EssaySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Essay
+        fields = '__all__'
